@@ -200,6 +200,6 @@ Charity Detail Page
   .NZMap {
       margin: 0 auto;
       border-radius: 25px;
-      border: solid 5px #666;
-      box-shadow: 5px 10px #6664;
+      border: solid 5px #ffaaaa;
+      box-shadow: 5px 10px 24px rgba(255,170,170, 0.4);
   }
