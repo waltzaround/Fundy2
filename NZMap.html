@@ -66,17 +66,12 @@
   </head>
 
   <body>
-    <div class="header CardTitle">
-        <h1>Locations of donations</h1>
+    <div style="position: absolute; bottom: 30px; left: 30px;">
+      <h1>Legend</h1>
+      <p>Height: Amount donated</p>
+      <p>Red: High impact</p>
+      <p>Blue: Low impact</p>
     </div>
-    <div id="control-panel" style="overflow-x: hidden; overflow-y: hidden">
-      <h1>Past donations</h1>
-      <table id="donation-table">
-        <tr><th>Charity</th><th>Donated</th><th>Expense</th></tr>
-      </table>
-      
-    </div>
-    <canvas id="chart"></canvas>
   </body>
   
 
@@ -108,11 +103,12 @@
         id: 'heatmap',
         colorRange: COLOR_RANGE,
         data,
-        // elevationRange: [0, 10000],
+        elevationRange: [0, 1000],
         elevationScale: 200,
         extruded: true,
         getPosition: d => d.pos,
         getElevationWeight: d=> d.size,
+        getColorWeight: d=>d.need,
         elevationAggregation: 'SUM',
         opacity: 1,
         radius: 12000,
@@ -133,8 +129,7 @@
 
       deckgl.setProps({
         layers: [hexagonLayer, geoJsonLayer],
-        controller: true,
-        width: "50%"
+        controller: true
       });
 
     }
@@ -142,44 +137,18 @@
     d3.csv('https://raw.githubusercontent.com/waltzaround/Fundy2/master/contributions.csv')
       .then(response => {
       data = response.map(d => {
-        let expendenture = document.createElement('tr');
-        expendenture.innerHTML = "<td>" + d.Name + "</td><td>$" + d.TotalExpenditure + "</td><td>" + d.Expense + "</td>";
-        document.getElementById('donation-table').appendChild(expendenture)
-        return {pos: [Number(d.Long), Number(d.Lat)], size :Number(d.TotalExpenditure.replace(',', ''))}
+        // let expendenture = document.createElement('tr');
+        // expendenture.innerHTML = "<td>" + d.Name + "</td><td>$" + d.TotalExpenditure + "</td><td>" + d.Expense + "</td>";
+        // document.getElementById('donation-table').appendChild(expendenture)
+        return {pos: [Number(d.Long), Number(d.Lat)], size :Number(d.TotalExpenditure.replace(',', '')), need:Math.random() * 1000}
       });
       renderLayer();
     });
-
-    let ctx = document.getElementById('chart')
-    let dataSets = {
-      datasets: [{
-              data: [10, 20, 30, 15,20,12,14,15,18,20,20],
-              backgroundColor: ["#0074D9", "#FF4136", "#2ECC40", "#FF851B", "#7FDBFF", "#B10DC9", "#FFDC00", "#001f3f", "#39CCCC", "#01FF70", "#85144b"]
-        }],
-      labels: [
-          'Homeless helpers',
-          'Dog feeders',
-          'Goldfish lovers assocaition',
-          'Elders association',
-          'Penguin assistance',
-          'Christchurch cyborg initiative',
-          'Goldfish lovers assocaition',
-          'Music inspiration corporation'
-    ]}
-    let chart = new Chart(ctx,{
-      type: 'pie',
-      data:dataSets,
-      options: {
-        responsive: true,
-        title: {
-          display: true,
-          text: 'Donation break down',
-          fontSize: 30 
-        },
-        labels: {
-          fontSize: 28,
-        }
-      }
-    })
+    d3.csv('https://raw.githubusercontent.com/waltzaround/Fundy/master/contributions.csv')
+      .then(response => {
+      data = response.map(d => {
+        console.log(d)
+      });
+    });
   </script>
 </html>

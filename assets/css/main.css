@@ -163,11 +163,16 @@ Profile Component
 
 
 .ProductContainer {
-position: relative;
-height: 10rem;
-margin: 1rem 0;
-border-radius: 12px;
-border: 5px solid transparent;
+    position: relative;
+    height: 10rem;
+    margin: 1rem 0;
+    border-radius: 12px;
+    border: 5px solid transparent;
+}
+
+.ProductContainer.selected {
+    border: 5px solid pink;
+    background-color: #FFF4F4;
 }
 
 .ProductContainer:Hover {
@@ -190,6 +195,7 @@ border: 5px solid transparent;
 }
 
 .ProductContentContainer {
+    text-align: left;
     position: absolute;
     left:10rem;
     width: 60rem;
@@ -200,11 +206,18 @@ border: 5px solid transparent;
 .ProductPriceContainer {
 
 }
+
+.ProductSelected {
+    font-weight: bold;
+    font-size: 18px;
+    color: pink;
+}
+
 .PriceContainer {
     font-size: 2rem;
     font-weight: bold;
     margin-top: 3.4rem;
-margin-right: 2rem;
+    margin-right: 2rem;
 }
 
   .TitleContainer {
@@ -215,7 +228,7 @@ margin-right: 2rem;
     font-weight: bold;
   }
   .SubtitleContainer{
-      font-size: 1rem;
+      font-size: 1.2rem;
       margin-left: 1.5rem;
       margin-top: 0.5rem;
   }
