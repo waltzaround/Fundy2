@@ -1,0 +1,113 @@
+<html>
+  <head>
+    <title>deck.gl HexagonLayer Example</title>
+
+    <script src="https://unpkg.com/deck.gl@^7.0.0/dist.min.js"></script>
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+
+    <style type="text/css">
+      body {
+        font-family: Helvetica, Arial, sans-serif;
+        width: 100vw;
+        height: 100vh;
+        margin: 0;
+      }
+
+      #control-panel {
+        position: absolute;
+        top: 0;
+        left: 0;
+        margin: 12px;
+        padding: 20px;
+        font-size: 12px;
+        line-height: 1.5;
+        z-index: 1;
+        background: #fff;
+        font-family: Helvetica, Arial, sans-serif;
+        box-shadow: 0 0 4px rgba(0, 0, 0, 0.15);
+      }
+
+      label {
+        display: inline-block;
+        width: 140px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="control-panel" style="width: 300px; height: 200px; overflow-x: hidden; overflow-y: scroll">
+      <h1>Past donations</h1>
+    </div>
+    <div id="tooltip"></div>
+  </body>
+
+  <script type="text/javascript">
+
+    const {DeckGL, HexagonLayer} = deck;
+
+    const deckgl = new DeckGL({
+      longitude: 174,
+      latitude: -42,
+      zoom: 5,
+      minZoom: 5,
+      maxZoom: 8,
+      pitch: 40.5
+    });
+
+    let data = null;
+
+    const COLOR_RANGE = [
+      [1, 152, 189],
+      [73, 227, 206],
+      [216, 254, 181],
+      [254, 237, 177],
+      [254, 173, 84],
+      [209, 55, 78]
+    ];
+    function renderLayer () {
+      const hexagonLayer = new HexagonLayer({
+        id: 'heatmap',
+        colorRange: COLOR_RANGE,
+        data,
+        elevationRange: [0, 10000],
+        elevationScale: 10,
+        extruded: true,
+        getPosition: d => d.pos,
+        getElevationWeight: d=> d.size,
+        elevationAggregation: 'SUM',
+        opacity: 1,
+        radius: 12000,
+        coverage: 1
+      });
+      
+      const geoJsonLayer = new GeoJsonLayer({
+        id:"base-map",
+        data:'https://d2ad6b4ur7yvpq.cloudfront.net/naturalearth-3.3.0/ne_50m_admin_0_scale_rank.geojson',
+        stroked:true,
+        Filled:true,
+        lineWidthMinPixels:2,
+        opacity:0.4,
+        getLineDashArray:[3, 3],
+        getLineColor:[60, 60, 60],
+        getFillColor:[200, 200, 200]
+      })
+
+      deckgl.setProps({
+        layers: [hexagonLayer, geoJsonLayer],
+        controller: false,
+        width: "50%"
+      });
+    }
+
+    d3.csv('https://raw.githubusercontent.com/waltzaround/Fundy/master/contributions.csv')
+      .then(response => {
+      data = response.map(d => {
+        let expendenture = document.createElement('div');
+        expendenture.innerHTML = d.Name + " : $" + d.TotalExpenditure + " : Dog food"
+        document.getElementById('control-panel').appendChild(expendenture)
+        return {pos: [Number(d.Long), Number(d.Lat)], size :Number(d.TotalExpenditure.replace(',', ''))}
+      });
+      renderLayer();
+    });
+  </script>
+</html>
