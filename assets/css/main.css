@@ -33,6 +33,7 @@ header {
     float:right;
     display: block;
     margin-right: 4rem;
+    margin-top: 1rem;
     font-weight: bold;
     font-size: 1.2rem;
 }
