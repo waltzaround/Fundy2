@@ -5,7 +5,7 @@
 
     <script src="https://unpkg.com/deck.gl@^7.0.0/dist.min.js"></script>
     <script src="https://d3js.org/d3.v5.min.js"></script>
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.bundle.min.js"></script>
     <style type="text/css">
       /* #deckgl-overlay {
         display: inline-block !important;
@@ -21,7 +21,8 @@
 
       #control-panel {
         position: absolute;
-        top: 20px;
+        /* top: 20px;*/
+        bottom:50px;
         left: 50%;
         /* right: 0; */
         margin: 12px;
@@ -29,8 +30,6 @@
         font-size: 12px;
         line-height: 1.5;
         z-index: 1;
-        /* left:40%; */
-        /* background: #fff; */
         font-family: Helvetica, Arial, sans-serif;
         box-shadow: 0 0 4px rgba(0, 0, 0, 0.15);
       }
@@ -52,6 +51,17 @@
         top: 20px;
         left: 40px;
       }
+      #chart {
+        position:absolute;
+        /* float:left; */
+        /* margin-left: 30rem; */
+        /* margin-top: 15rem; */
+        top: 50px;
+        left:50%;
+        width: 800px !important;
+        height:400px !important;
+        z-index: 1;
+      }
     </style>
   </head>
 
@@ -66,8 +76,9 @@
       </table>
       
     </div>
-    <div id="tooltip"></div>
+    <canvas id="chart"></canvas>
   </body>
+  
 
   <script type="text/javascript">
 
@@ -122,7 +133,7 @@
 
       deckgl.setProps({
         layers: [hexagonLayer, geoJsonLayer],
-        controller: false,
+        controller: true,
         width: "50%"
       });
 
@@ -137,6 +148,34 @@
         return {pos: [Number(d.Long), Number(d.Lat)], size :Number(d.TotalExpenditure.replace(',', ''))}
       });
       renderLayer();
+    });
+
+    let ctx = document.getElementById('chart')
+    let dataSets = {
+      datasets: [{
+              data: [10, 20, 30, 15,20,12,14,15,18,20,20],
+              backgroundColor: 'red'
+        }],
+      labels: [
+          'Homeless helpers',
+          'Dog feeders',
+          'Goldfish lovers assocaition',
+          'Elders association',
+          'Penguin assistance',
+          'Christchurch cyborg initiative',
+          'Goldfish lovers assocaition',
+          'Music inspiration corporation'
+    ]}
+    let chart = new Chart(ctx,{
+      type: 'doughnut',
+      data:dataSets,
+      options: {}
+    })
+    d3.csv('https://raw.githubusercontent.com/waltzaround/Fundy/master/contributions.csv')
+      .then(response => {
+      data = response.map(d => {
+        console.log(d)
+      });
     });
   </script>
 </html>
