@@ -41,6 +41,16 @@ Charity Detail Page
     margin: 20px;
 }
 
+.Charity-Paragraph {
+    text-align: center;
+    align-content: center;
+    margin: 0 auto;
+    font-size: 1.5rem;
+    line-height: 1.5;
+    width: 50rem;
+   
+}
+
 .charity-title {
     padding-top: 140px;
     margin-bottom: 0;
@@ -59,9 +69,11 @@ Charity Detail Page
 }
 
 .charity-summary {
-    text-align: left;
-    float: left;
-    padding: 20px;
+    text-align: center;
+    align-content: center;
+    margin: 1rem auto;
+    font-size: 1.2rem;
+    width: 50rem;
 }
 
 .clearfix:after {
