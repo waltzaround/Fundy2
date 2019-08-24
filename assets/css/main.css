@@ -1,5 +1,5 @@
-/* 
-Main Page Skeleton 
+/*
+Main Page Skeleton
 */
 
 
@@ -39,7 +39,7 @@ header {
 .LastItem {
     margin-right: 2rem;
 }
-/* 
+/*
 Hero Component
 */
 
@@ -91,7 +91,7 @@ Hero Component
     font-size: 32px;
 }
 
-/* 
+/*
 Grid List Component
 */
 
@@ -99,7 +99,7 @@ Grid List Component
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     gap: 2rem;
-    
+
 }
 
 .Card {
@@ -107,7 +107,7 @@ Grid List Component
     background-color: purple;
 }
 
-/* 
+/*
 Search Component
 */
 .SearchContainer {
@@ -120,3 +120,104 @@ Search Component
     border-radius: 24px;
     padding: 1rem;
 }
+
+/*
+Profile Component
+*/
+
+.mainShape {
+    margin-top: 10rem;
+    position: relative;
+    box-shadow: 6px 0 21px -3px rgba(86,93,111,0.12);
+    border-radius: 16px;
+    background: white;
+    width: 80rem;
+    height: 1200px;
+  }
+
+
+
+  .mask {
+    position: absolute;
+    top:-100px;
+    right: calc(50% - 100px);
+    width:200px;
+    height:200px;
+    border-radius: 50% 50% 0 0;
+    background-color:white;
+  }
+
+
+.ProductContainer {
+position: relative;
+height: 10rem;
+margin: 2rem 0;
+border-radius: 12px;
+}
+
+.ProductContainer :Hover {
+    border: 5px solid pink;
+}
+
+.ProductImageContainer {
+    position: absolute;
+    margin: 0;
+    width: 10rem;
+    height: 10rem;
+    overflow: hidden;
+    border-radius: 12px;
+    border: none;
+}
+.ProductImage {
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.ProductContentContainer {
+    position: absolute;
+    left:10rem;
+    width: 60rem;
+    height: 10rem;
+
+}
+
+.ProductPriceContainer {
+
+}
+.PriceContainer {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-top: 3.4rem;
+margin-right: 2rem;
+}
+
+  .TitleContainer {
+      margin-top: 2.5rem;
+      margin-left: 1.5rem;
+      margin-bottom: 0;
+    font-size: 2rem;
+    font-weight: bold;
+  }
+  .SubtitleContainer{
+      font-size: 1rem;
+      margin-left: 1.5rem;
+      margin-top: 0.5rem;
+  }
+
+.BuyItemImage {
+    float: left;
+}
+
+  .BuyItemContainer {
+      width: 960px;
+      float: left;
+      height: 10rem;
+         margin: 1rem 0 0 2rem;
+  }
+
+  .PriceContainer {
+      float: right;
+  }
+
+
