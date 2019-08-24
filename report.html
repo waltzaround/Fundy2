@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en-us">
+
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="assets/css/normalize.css">
+    <link rel="stylesheet" href="assets/css/uikit.min.css" />
+    <script src="assets/js/uikit.min.js"></script>
+    <script src="assets/js/uikit-icons.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Quicksand:300,400,500,600,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/main.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+    <meta name="theme-color" content="#fafafa">
+</head>
+
+<body>
+    <!--[if IE]>
+    <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
+  <![endif]-->
+        <div class="progress1_new">
+            <div class="progress1_remaining"></div>
+        </div>
+        <canvas id="chart"></canvas>
+    <!-- Add your site or application content here -->
+    <script>
+        window.onload =async () => {
+            
+            const data = await fetch('http://www.odata.charities.govt.nz/GrpOrgLatestReturns?$returnall=true&$filter=Totalexpenditure%20le%20125000%20and%20RegistrationStatus%20eq%27Registered%27&$select=Totalexpenditure&$format=json', { 
+                mode: 'no-cors',
+                headers: {
+                    "Access-Control-Allow-Credentials": true,
+    'Access-Control-Allow-Origin':'*',
+    'Access-Control-Allow-Methods': 'GET,PUT,POST,DELETE,OPTIONS',
+    "Access-Control-Allow-Headers": 'X-Requested-With, X-HTTP-Method-Override, Content-Type, Accept'
+
+  }})
+            console.log(data)
+        }
+       let ctx = document.getElementById('chart')
+       var data = {
+        labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+        datasets: [{
+            label: 'My First dataset',
+            backgroundColor: 'rgb(255, 99, 132)',
+            borderColor: 'rgb(255, 99, 132)',
+            data: [0, 10, 5, 2, 20, 30, 45]
+        }]
+       }
+       let myBarChart = new Chart(ctx, {
+        type: 'line',
+        labels: ['1','2','2','3','3','4','5'],
+        options: {
+            animation: {
+                numSteps: 1000
+            },
+            scales: {
+                xAxes: [{
+                    gridLines: {
+                        display:false
+                    }
+                }],
+                yAxes: [{
+                    gridLines: {
+                        display:false
+                    }   
+                }]
+            }
+        },
+        data: {
+        labels: ['Jan', 'Feb', 'Mar', 'Apr', 'Jun', 'Jul', 'Aug'],
+        datasets: [{
+            label: 'Impact',
+            backgroundColor: 'rgb(255, 99, 132)',
+            borderColor: 'rgb(255, 99, 132)',
+            fill:false,
+            data: [17136, 305418, 100000, 38806, 3745, 49366, 6618]
+            }]
+        },
+       });
+    </script>
+
+</body>
+
+</html>
