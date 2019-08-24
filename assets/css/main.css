@@ -4,7 +4,7 @@ Main Page Skeleton
 
 
 html {
-    font-family: Quicksand;
+    font-family: 'Quicksand', sans-serif !important;
     background-color: #FFF6F6;
 }
 
@@ -99,12 +99,27 @@ Grid List Component
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     gap: 2rem;
+    margin-bottom: 5rem;
     
 }
 
-.Card {
-    height: 8rem;
-    background-color: purple;
+.CardStyle {
+ border-radius: 12px;
+}
+
+.CardImage {
+    border-radius: 12px 12px 0 0;
+    object-position: center;
+}
+
+.CardTitle {
+    font-family: 'Quicksand', sans-serif !important;
+    font-weight: bold;
+    font-size: 2rem;
+}
+
+.CardSubtitle {
+    font-size: 1.4rem;
 }
 
 /* 
