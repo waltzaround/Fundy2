@@ -151,11 +151,12 @@ Profile Component
 .ProductContainer {
 position: relative;
 height: 10rem;
-margin: 2rem 0;
+margin: 1rem 0;
 border-radius: 12px;
+border: 5px solid transparent;
 }
 
-.ProductContainer :Hover {
+.ProductContainer:Hover {
     border: 5px solid pink;
 }
 
