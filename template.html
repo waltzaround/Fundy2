@@ -13,7 +13,7 @@
     <script src="assets/js/main.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Quicksand:300,400,500,600,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/main.css">
-
+    <script src="https://d3js.org/d3.v5.min.js"></script>
     <meta name="theme-color" content="#fafafa">
 </head>
 
@@ -29,9 +29,25 @@
   </div>
   <iframe src="NZMap.html" height="600px" width="100%"></iframe>
   <div class="container" >
+    <table id="donation-table" class="uk-table-small">
+      <thead>
+          <tr><th>Charity Name</th><th>Donation</th><th>Expense</th></tr>
+      </thead>
+      <tbody id="donation-body">
 
+      </tbody>
+    </table>
   </div>
-
+  <script>
+    d3.csv('https://raw.githubusercontent.com/waltzaround/Fundy2/master/contributions.csv')
+      .then(response => {
+      data = response.map(d => {
+        let expendenture = document.createElement('tr');
+        expendenture.innerHTML = "<td>" + d.Name + "</td><td>$" + d.TotalExpenditure + "</td><td>" + d.Expense + "</td>";
+        document.getElementById('donation-body').appendChild(expendenture)
+      });
+    })
+    </script>
 </body>
 
 </html>
