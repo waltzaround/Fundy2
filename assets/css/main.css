@@ -1,0 +1,69 @@
+/* 
+Main Page Skeleton 
+*/
+
+.Container {
+    width: 80rem;
+    margin: 0 auto;
+}
+
+/* 
+Hero Component
+*/
+
+.HeroContainer {
+    margin: 5rem 0;
+    width: 80rem;
+    height: 35rem;
+    background: #FFDBDB;
+    border-radius: 24px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.HeroH1 {
+    font-family: Averta-Bold;
+    font-size: 96px;
+    color: #131415;
+    letter-spacing: -2.36px;
+    margin: 4rem 0 2rem 0;
+}
+
+.HeroP {
+    margin-top: 1rem;
+    font-family: Averta-Regular;
+    font-size: 32px;
+    color: #131415;
+    letter-spacing: 0.21px;
+    line-height: 40px;
+}
+
+.HeroContent {
+    padding: 0rem 0 0 5rem;
+    padding-top: 2rem;
+}
+
+.HeroImage {
+    width: 100%;
+    float: right;
+    padding-right: 2rem;
+    padding-top: 5rem;
+    object-position: center;
+    object-fit: center;
+}
+
+.HeroLink {
+    color: green;
+    font-family: Averta-Bold;
+    font-size: 32px;
+}
+
+/* 
+Grid List Component
+*/
+
+.CardGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 2rem;
+}
