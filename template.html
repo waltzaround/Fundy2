@@ -22,6 +22,34 @@
       width: 60% !important;
       height: auto !important;
     }
+    table{
+      border-collapse:collapse;
+      width:100%;
+      margin-top: 2%;
+    }
+
+  table.normal{
+      border:2px solid #FFF6F6;
+  }
+
+  thead{
+    background:#ffaaaa;
+    color:white;
+  }
+
+  th,td{
+    text-align:center;
+    padding:5px 0;
+  }
+
+  tbody tr:nth-child(even){
+    background:#ffdddd;
+  }
+
+  tbody tr:hover{
+  background:#ffaaaa;
+    color:#FFFFFF;
+  }
   </style>
 </head>
 
@@ -53,7 +81,7 @@
 
       </tbody>
     </table>
-    <canvas id="chart"></canvas>
+    <center><canvas id="chart"></canvas></center>
   </div>
   <script>
     d3.csv('https://raw.githubusercontent.com/waltzaround/Fundy2/master/contributions.csv')
@@ -109,6 +137,7 @@
     <iframe class='BIReport' width="1280" height="1000"
       src="https://app.powerbi.com/view?r=eyJrIjoiNGIyZGEwZjItNjkxNy00MGQ1LTg1ZmYtNzdmZmUzNTU5NDVhIiwidCI6IjUwNzM3MmZjLTNlZDItNGI1ZS1iMjk1LTM2NGM1ZTE5NDYwMiJ9"
       frameborder="0" allowFullScreen="true"></iframe>
+      <div style="width: 100%; bottom: 0; left: 0; height: 50px; position: fixed; background: #FFF6F6"></div>
   </div>
 </body>
 
