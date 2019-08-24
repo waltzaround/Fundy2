@@ -11,10 +11,17 @@
     <script src="assets/js/uikit.min.js"></script>
     <script src="assets/js/uikit-icons.min.js"></script>
     <script src="assets/js/main.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.bundle.min.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Quicksand:300,400,500,600,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/main.css">
     <script src="https://d3js.org/d3.v5.min.js"></script>
     <meta name="theme-color" content="#fafafa">
+    <style>
+    #chart {
+      width: 60% !important;
+      height: auto !important;
+    }
+    </style>
 </head>
 
 <body>
@@ -29,7 +36,7 @@
   </div>
   <iframe src="NZMap.html" height="600px" width="100%"></iframe>
   <div class="container" >
-    <table id="donation-table" class="uk-table-small">
+    <table id="donation-table" class="uk-table-small" style="float: left">
       <thead>
           <tr><th>Charity Name</th><th>Donation</th><th>Expense</th></tr>
       </thead>
@@ -37,6 +44,7 @@
 
       </tbody>
     </table>
+    <canvas id="chart"></canvas>
   </div>
   <script>
     d3.csv('https://raw.githubusercontent.com/waltzaround/Fundy2/master/contributions.csv')
@@ -48,6 +56,42 @@
       });
     })
     </script>
+    
+  </div>
+
+  <script>
+    let ctx = document.getElementById('chart')
+    let dataSets = {
+      datasets: [{
+              data: [10, 20, 30, 15,20,12,14,15,18,20,20],
+              backgroundColor: ["#0074D9", "#FF4136", "#2ECC40", "#FF851B", "#7FDBFF", "#B10DC9", "#FFDC00", "#001f3f", "#39CCCC", "#01FF70", "#85144b"]
+        }],
+      labels: [
+          'Homeless helpers',
+          'Dog feeders',
+          'Goldfish lovers assocaition',
+          'Elders association',
+          'Penguin assistance',
+          'Christchurch cyborg initiative',
+          'Goldfish lovers assocaition',
+          'Music inspiration corporation'
+    ]}
+    let chart = new Chart(ctx,{
+      type: 'pie',
+      data:dataSets,
+      options: {
+        responsive: true,
+        title: {
+          display: true,
+          text: 'Donation break down',
+          fontSize: 30 
+        },
+        labels: {
+          fontSize: 28,
+        }
+      }
+    })
+  </script>
 </body>
 
 </html>
