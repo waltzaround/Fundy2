@@ -1,10 +1,10 @@
-/* 
-Main Page Skeleton 
+/*
+Main Page Skeleton
 */
 
 
 html {
-    font-family: Quicksand;
+    font-family: 'Quicksand', sans-serif !important;
     background-color: #FFF6F6;
 }
 
@@ -39,7 +39,7 @@ header {
 .LastItem {
     margin-right: 2rem;
 }
-/* 
+/*
 Hero Component
 */
 
@@ -91,7 +91,7 @@ Hero Component
     font-size: 32px;
 }
 
-/* 
+/*
 Grid List Component
 */
 
@@ -99,15 +99,29 @@ Grid List Component
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     gap: 2rem;
-    
+    margin-bottom: 5rem;
 }
 
-.Card {
-    height: 8rem;
-    background-color: purple;
+.CardStyle {
+ border-radius: 12px;
 }
 
-/* 
+.CardImage {
+    border-radius: 12px 12px 0 0;
+    object-position: center;
+}
+
+.CardTitle {
+    font-family: 'Quicksand', sans-serif !important;
+    font-weight: bold;
+    font-size: 2rem;
+}
+
+.CardSubtitle {
+    font-size: 1.4rem;
+}
+
+/*
 Search Component
 */
 .SearchContainer {
@@ -121,8 +135,7 @@ Search Component
     padding: 1rem;
 }
 
-
-/* 
+/*
 Profile Component
 */
 
@@ -135,9 +148,9 @@ Profile Component
     width: 80rem;
     height: 1200px;
   }
-  
 
-  
+
+
   .mask {
     position: absolute;
     top:-100px;
@@ -147,3 +160,79 @@ Profile Component
     border-radius: 50% 50% 0 0;
     background-color:white;
   }
+
+
+.ProductContainer {
+position: relative;
+height: 10rem;
+margin: 1rem 0;
+border-radius: 12px;
+border: 5px solid transparent;
+}
+
+.ProductContainer:Hover {
+    border: 5px solid pink;
+}
+
+.ProductImageContainer {
+    position: absolute;
+    margin: 0;
+    width: 10rem;
+    height: 10rem;
+    overflow: hidden;
+    border-radius: 12px;
+    border: none;
+}
+.ProductImage {
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.ProductContentContainer {
+    position: absolute;
+    left:10rem;
+    width: 60rem;
+    height: 10rem;
+
+}
+
+.ProductPriceContainer {
+
+}
+.PriceContainer {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-top: 3.4rem;
+margin-right: 2rem;
+}
+
+  .TitleContainer {
+      margin-top: 2.5rem;
+      margin-left: 1.5rem;
+      margin-bottom: 0;
+    font-size: 2rem;
+    font-weight: bold;
+  }
+  .SubtitleContainer{
+      font-size: 1rem;
+      margin-left: 1.5rem;
+      margin-top: 0.5rem;
+  }
+
+.BuyItemImage {
+    float: left;
+}
+
+  .BuyItemContainer {
+      width: 960px;
+      float: left;
+      height: 10rem;
+         margin: 1rem 0 0 2rem;
+  }
+
+  .PriceContainer {
+      float: right;
+  }
+
+
