@@ -156,6 +156,10 @@ margin: 2rem 0;
 border-radius: 12px;
 }
 
+.ProductContainer :Hover {
+    border: 5px solid pink;
+}
+
 .ProductImageContainer {
     position: absolute;
     margin: 0;
@@ -163,6 +167,7 @@ border-radius: 12px;
     height: 10rem;
     overflow: hidden;
     border-radius: 12px;
+    border: none;
 }
 .ProductImage {
     width: 100%;
