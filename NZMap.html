@@ -1,0 +1,154 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="assets/css/main.css">
+    <title>deck.gl HexagonLayer Example</title>
+
+    <script src="https://unpkg.com/deck.gl@^7.0.0/dist.min.js"></script>
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.bundle.min.js"></script>
+    <style type="text/css">
+      /* #deckgl-overlay {
+        display: inline-block !important;
+        position: relative !important;
+      } */
+
+      body {
+        font-family: Helvetica, Arial, sans-serif;
+        width: 100vw;
+        height: 100vh;
+        margin: 0;
+      }
+
+      #control-panel {
+        position: absolute;
+        /* top: 20px;*/
+        bottom:50px;
+        left: 50%;
+        /* right: 0; */
+        margin: 12px;
+        padding: 20px;
+        font-size: 12px;
+        line-height: 1.5;
+        z-index: 1;
+        font-family: Helvetica, Arial, sans-serif;
+        box-shadow: 0 0 4px rgba(0, 0, 0, 0.15);
+      }
+      th {
+        padding-right: 10px;
+        padding-left: 10px;
+        text-align: left;
+      }
+      td {
+        padding-right: 10px;
+        padding-left: 10px;
+      }
+      label {
+        display: inline-block;
+        width: 140px;
+      }
+      .header {
+        position: absolute;
+        top: 20px;
+        left: 40px;
+      }
+      #chart {
+        position:absolute;
+        /* float:left; */
+        /* margin-left: 30rem; */
+        /* margin-top: 15rem; */
+        top: 50px;
+        left:50%;
+        width: 800px !important;
+        height:400px !important;
+        z-index: 1;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div style="position: absolute; bottom: 30px; left: 30px;">
+      <h1>Legend</h1>
+      <p>Height: Amount donated</p>
+      <p>Red: High impact</p>
+      <p>Blue: Low impact</p>
+    </div>
+  </body>
+  
+
+  <script type="text/javascript">
+
+    const {DeckGL, HexagonLayer} = deck;
+
+    const deckgl = new DeckGL({
+      longitude: 174,
+      latitude: -42,
+      zoom: 5,
+      minZoom: 5,
+      maxZoom: 8,
+      pitch: 40.5
+    });
+
+    let data = null;
+
+    const COLOR_RANGE = [
+      [1, 152, 189],
+      [73, 227, 206],
+      [216, 254, 181],
+      [254, 237, 177],
+      [254, 173, 84],
+      [209, 55, 78]
+    ];
+    function renderLayer () {
+      const hexagonLayer = new HexagonLayer({
+        id: 'heatmap',
+        colorRange: COLOR_RANGE,
+        data,
+        elevationRange: [0, 1000],
+        elevationScale: 200,
+        extruded: true,
+        getPosition: d => d.pos,
+        getElevationWeight: d=> d.size,
+        getColorWeight: d=>d.need,
+        elevationAggregation: 'SUM',
+        opacity: 1,
+        radius: 12000,
+        coverage: 1
+      });
+      
+      const geoJsonLayer = new GeoJsonLayer({
+        id:"base-map",
+        data:'https://d2ad6b4ur7yvpq.cloudfront.net/naturalearth-3.3.0/ne_50m_admin_0_scale_rank.geojson',
+        stroked:true,
+        Filled:true,
+        lineWidthMinPixels:2,
+        opacity:0.4,
+        getLineDashArray:[3, 3],
+        getLineColor:[60, 60, 60],
+        getFillColor:[200, 200, 200]
+      })
+
+      deckgl.setProps({
+        layers: [hexagonLayer, geoJsonLayer],
+        controller: true
+      });
+
+    }
+
+    d3.csv('https://raw.githubusercontent.com/waltzaround/Fundy2/master/contributions.csv')
+      .then(response => {
+      data = response.map(d => {
+        // let expendenture = document.createElement('tr');
+        // expendenture.innerHTML = "<td>" + d.Name + "</td><td>$" + d.TotalExpenditure + "</td><td>" + d.Expense + "</td>";
+        // document.getElementById('donation-table').appendChild(expendenture)
+        return {pos: [Number(d.Long), Number(d.Lat)], size :Number(d.TotalExpenditure.replace(',', '')), need:Math.random() * 1000}
+      });
+      renderLayer();
+    });
+    d3.csv('https://raw.githubusercontent.com/waltzaround/Fundy/master/contributions.csv')
+      .then(response => {
+      data = response.map(d => {
+        console.log(d)
+      });
+    });
+  </script>
+</html>
