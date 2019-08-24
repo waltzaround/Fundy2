@@ -1,0 +1,43 @@
+/* 
+Main Page Skeleton 
+*/
+
+
+
+.charity {
+    text-align: center;
+    background-color: #fff;
+    border:  1px solid #afb9c1;
+    margin: 20px;
+}   
+
+.charity-title {
+    padding-top:15px;
+} 
+
+.charity-title {
+    align-content: center;
+} 
+
+.charity-summary {
+    text-align: left;
+    display: block;
+    width: 60%;
+    float: left;
+    padding: 20px;
+}
+
+.charity-goals {
+    display: block;
+    width: 30%;
+    float: right;
+    padding-top: 20px;
+}
+
+.clearfix:after {
+    content: " "; /* Older browser do not support empty content */
+    visibility: hidden;
+    display: block;
+    height: 0;
+    clear: both;
+ }
