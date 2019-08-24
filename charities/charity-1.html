@@ -10,6 +10,8 @@
     <link rel="stylesheet" href="../assets/css/uikit.min.css" />
     <script src="../assets/js/uikit.min.js"></script>
     <script src="../assets/js/uikit-icons.min.js"></script>
+    <script src="../assets/js/main.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Quicksand:300,400,500,600,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../assets/css/main.css">
     <link rel="stylesheet" href="../assets/css/charity.css">
@@ -55,6 +57,67 @@
               The Upper Hutt Animal Rescue Society exists to care for and find homes for animals. (mainly cats, kittens and rabbits) which come into care. We do this by: Taking in animals which are unwanted or stray, or are relinquished by their owners due to hardship, moving house, death of owner or owner going into care. Vaccination and desexing these animal while providing for their welfare (food, shelter and vetinerary care. We also assist owners of cats with kittens to have these desexed.  Applying at all times our “no kill” policy as set out in our Constitution. Finding good ‘forever’ homes for these animals or if this is not possible to care for the animal at our Haven property or through our “long term fostering” programme.
           </div>
         </div>
+
+
+
+        <div class="ProductContainer" id="1" data-price="40">
+            <div class="ProductImageContainer">
+              <img class="ProductImage" src="https://via.placeholder.com/150"></img>
+            </div>
+            <div class="ProductContentContainer">
+              <h3 class='TitleContainer'>General Electric Thermonuclearelectric Nuclear Reactor</h3>
+              <p class='SubtitleContainer'>Bunnings Warehouse</p>
+            </div>
+            <div class="ProductPriceContainer">
+              <h3 class="PriceContainer">$40</h3>
+              <span class="ProductSelected" style="display: none">selected</span>
+            </div>
+            
+      
+          </div>
+      
+          <div class="ProductContainer" id="2" data-price="15">
+            <div class="ProductImageContainer">
+              <img class="ProductImage" src="https://via.placeholder.com/150"></img>
+            </div>
+            <div class="ProductContentContainer">
+              <h3 class='TitleContainer'>General Electric Thermonuclearelectric Nuclear Reactor</h3>
+              <p class='SubtitleContainer'>Bunnings Warehouse</p>
+            </div>
+            <div class="ProductPriceContainer">
+              <h3 class="PriceContainer">$15</h3>
+              <span class="ProductSelected" style="display: none">selected</span>
+            </div>
+      
+          </div>
+          <div class="ProductContainer" id="3" data-price="100">
+            <div class="ProductImageContainer">
+              <img class="ProductImage" src="https://via.placeholder.com/150"></img>
+            </div>
+            <div class="ProductContentContainer">
+              <h3 class='TitleContainer'>General Electric Thermoelectric Nuclear Reactor</h3>
+              <p class='SubtitleContainer'>Bunnings Warehouse</p>
+            </div>
+            <div class="ProductPriceContainer">
+              <h3 class="PriceContainer">$100</h3>
+              <span class="ProductSelected" style="display: none">selected</span>
+            </div>
+      
+          </div>
+      
+
+            <div>
+                  <span id="totalizer" data-comment="ONLY NUMBER OR EMPTY">0</span>
+            </div>
+
+      <script>
+      
+      $('#1').click({totalizerElement: $("#totalizer")}, fundy.toggleSelectedItem);
+      $('#2').click({totalizerElement: $("#totalizer")}, fundy.toggleSelectedItem);
+      $('#3').click({totalizerElement: $("#totalizer")}, fundy.toggleSelectedItem);
+      
+      </script>
+
 
         <div class="charity-donation clearfix">
             <div>
