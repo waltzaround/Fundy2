@@ -1,4 +1,4 @@
-/* 
+/*
 Charity Detail Page
 */
 
@@ -59,7 +59,7 @@ Charity Detail Page
     line-height: 1.5;
     width: 50rem;
     margin-bottom: 4rem;
-   
+
 }
 
 .charity-title {
@@ -97,7 +97,7 @@ Charity Detail Page
 }
 .MoneyContainer {
     margin: 2rem auto 0 0;
- 
+
 }
 
 
@@ -130,7 +130,7 @@ Charity Detail Page
     }
   }
 
-  
+
   .btn {
     overflow: visible;
     margin: 2rem auto 4rem auto;;
@@ -192,9 +192,14 @@ Charity Detail Page
   .btn--radius {
     border-radius: 36px;
   }
-  
+
   .BIReport {
       margin: 0 auto;
-    
   }
-  
+
+  .NZMap {
+      margin: 0 auto;
+      border-radius: 25px;
+      border: solid 5px #666;
+      box-shadow: 5px 10px #6664;
+  }
