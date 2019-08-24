@@ -55,15 +55,13 @@
           <div class="charity-summary">
               <p class="Charity-Paragraph">We need more equipment to care for and find homes for animals. (mainly cute little kittens and rabbits) which come into care.</p>
           </div>
-  
 
 
-
-        <div class="ProductContainer" id="1" data-price="40">
+        <div class="ProductContainer" id="1" data-price="40" >
             <div class="ProductImageContainer">
               <img class="ProductImage" src="../assets/img/bed1.jpg"></img>
             </div>
-            <div class="ProductContentContainer">
+            <div class="ProductContentContainer" >
               <h3 class='TitleContainer'>Dog Beds</h3>
               <p class='SubtitleContainer'>SVS Veterinary Supplies Ltd
                 </p>
@@ -71,11 +69,9 @@
             <div class="ProductPriceContainer">
               <h3 class="PriceContainer">$40</h3>
               <span class="ProductSelected" style="display: none">selected</span>
-            </div>
-            
-      
+            </div>      
           </div>
-      
+
           <div class="ProductContainer" id="2" data-price="15">
             <div class="ProductImageContainer">
               <img class="ProductImage" src="../assets/img/food1.jpeg"></img>
@@ -88,7 +84,6 @@
               <h3 class="PriceContainer">$15</h3>
               <span class="ProductSelected" style="display: none">selected</span>
             </div>
-      
           </div>
           <div class="ProductContainer" id="3" data-price="100">
             <div class="ProductImageContainer">
@@ -102,8 +97,34 @@
               <h3 class="PriceContainer">$100</h3>
               <span class="ProductSelected" style="display: none">selected</span>
             </div>
-      
           </div>
+
+          <div class="ProductContainer" id="4" data-price="1000">
+              <div class="ProductImageContainer">
+                <img class="ProductImage" src="../assets/img/staff.jpg"></img>
+              </div>
+              <div class="ProductContentContainer">
+                <h3 class='TitleContainer'>Staff Operational Cost</h3>
+                <p class='SubtitleContainer'>SVS Veterinary Supplies Ltd</p>
+              </div>
+              <div class="ProductPriceContainer">
+                <h3 class="PriceContainer">$1000</h3>
+                <span class="ProductSelected" style="display: none">selected</span>
+              </div>
+            </div>
+              <div class="ProductContainer" id="5" data-price="500">
+                <div class="ProductImageContainer">
+                  <img class="ProductImage" src="../assets/img/facility.jpg"></img>
+                </div>
+                <div class="ProductContentContainer">
+                  <h3 class='TitleContainer'>Facility Cost</h3>
+                  <p class='SubtitleContainer'>SVS Veterinary Supplies Ltd</p>
+                </div>
+                <div class="ProductPriceContainer">
+                  <h3 class="PriceContainer">$500</h3>
+                  <span class="ProductSelected" style="display: none">selected</span>
+                </div>
+              </div>
           <div class="divider"> </div>
 
             <div class="MoneyContainer">
@@ -115,6 +136,8 @@
       $('#1').click({totalizerElement: $("#totalizer")}, fundy.toggleSelectedItem);
       $('#2').click({totalizerElement: $("#totalizer")}, fundy.toggleSelectedItem);
       $('#3').click({totalizerElement: $("#totalizer")}, fundy.toggleSelectedItem);
+      $('#4').click({totalizerElement: $("#totalizer")}, fundy.toggleSelectedItem);
+      $('#5').click({totalizerElement: $("#totalizer")}, fundy.toggleSelectedItem);
       
       </script>
 
