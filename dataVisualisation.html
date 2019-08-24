@@ -128,7 +128,7 @@
     let dataSets = {
       datasets: [{
               data: [10, 20, 30, 15,20,12,14,15,18,20,20],
-              backgroundColor: 'red'
+              backgroundColor: ["#0074D9", "#FF4136", "#2ECC40", "#FF851B", "#7FDBFF", "#B10DC9", "#FFDC00", "#001f3f", "#39CCCC", "#01FF70", "#85144b", "#F012BE", "#3D9970", "#111111", "#AAAAAA"]
         }],
       labels: [
           'Homeless helpers',
@@ -140,16 +140,26 @@
           'Goldfish lovers assocaition',
           'Music inspiration corporation'
     ]}
-    let chart = new Chart(ctx,{
-      type: 'doughnut',
-      data:dataSets,
-      options: {}
-    })
     d3.csv('https://raw.githubusercontent.com/waltzaround/Fundy/master/contributions.csv')
       .then(response => {
       data = response.map(d => {
         console.log(d)
       });
     });
+    let chart = new Chart(ctx,{
+      type: 'doughnut',
+      data:dataSets,
+      options: {
+        responsive: true,
+        title: {
+          display: true,
+          text: 'Donation break down',
+          fontSize: 30 
+        },
+        labels: {
+          fontSize: 28,
+        }
+      }
+    })
   </script>
 </html>
