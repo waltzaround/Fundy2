@@ -2,17 +2,48 @@
 Main Page Skeleton 
 */
 
+
+html {
+    font-family: Quicksand;
+}
+
 .Container {
     width: 80rem;
     margin: 0 auto;
 }
 
+
+/*
+Header
+*/
+
+header {
+    height: 4rem;
+    width: 100%;
+}
+
+.Logo {
+    float: left;
+    margin: 0.5rem 0 0 0.5rem;
+    height: 70%;
+}
+
+.MenuItem {
+    float:right;
+    display: block;
+    margin-right: 4rem;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+.LastItem {
+    margin-right: 2rem;
+}
 /* 
 Hero Component
 */
 
 .HeroContainer {
-    margin: 5rem 0;
+    margin: 5rem 0 2rem 0;
     width: 80rem;
     height: 35rem;
     background: #FFDBDB;
@@ -22,16 +53,17 @@ Hero Component
 }
 
 .HeroH1 {
-    font-family: Averta-Bold;
+
     font-size: 96px;
     color: #131415;
     letter-spacing: -2.36px;
-    margin: 4rem 0 2rem 0;
+    margin: 4rem 0 1rem 0;
+    font-weight: 700;
 }
 
 .HeroP {
-    margin-top: 1rem;
-    font-family: Averta-Regular;
+    margin-top: 0rem;
+
     font-size: 32px;
     color: #131415;
     letter-spacing: 0.21px;
@@ -54,7 +86,7 @@ Hero Component
 
 .HeroLink {
     color: green;
-    font-family: Averta-Bold;
+    font-weight: bold;
     font-size: 32px;
 }
 
@@ -66,4 +98,29 @@ Grid List Component
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     gap: 2rem;
+    
 }
+
+.Card {
+    height: 8rem;
+    background-color: purple;
+}
+
+/* 
+Search Component
+*/
+.SearchContainer {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    height: 5rem;
+    width: 78rem;
+    background-color: white;
+    box-shadow: 2px 2px 24px 0 rgba(166,166,166,0.50);
+    border-radius: 24px;
+    padding: 1rem;
+}
+
+
+/* 
+Search Component
+*/
