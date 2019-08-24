@@ -1,12 +1,12 @@
 RegisterationNumber,Suburb,City,Lat,Long,Name,TotalExpenditure,Expense
-  CC49286,  Manurewa,  Auckland,-37.028328,174.894636,  Dog feeders!,"  131439,",Dog food
-  CC48103,  Glen Eden,  Auckland,-36.912376,174.654167,  Homeless helpers,"  5947,", Clothes for the homeless
-  CC48519,  Hamilton Lake,  Hamilton,-37.805384,175.277867,  Penguin assistance,"  36732,",Crutches for handicapped penguins
-  CC49017,  Christchurch Central,  Christchurch,-43.530658,172.633547,  Christchurch cyborg initiative,"  3170,",Robots for children
-  CC50425,  Mangawhai,  Kaiwaka,-36.170501,174.447334,  Goldfish lovers assocaition,"  5290786,",Water for goldfish
-  CC48539,  Brooklyn,  Wellington,-41.304594,174.759223,  Music inspiration corporation,"  1146,",Musical instruments for the homeless
-  CC48540,   ,  Whakatane,-37.958777,176.978597,  Cat lovers association,"  501000,",Cats for the catless
-  CC48800,   ,  Whanganui,failed,failed,  Dog lovers association,"  154626,",Dogs for the dogless
-  CC48411,  null,  null,failed,failed,  Caffine anonymous,"  8698,",Decaf coffee for caffine addicts anonymous
-  CC48597,  Rongotai,  Wellington,-41.322574,174.804256,  Guinea pig helpers,"  2849,",Carrots for the guinea pig adoption center
-  CC48813,   ,  Bulls,-40.177056,175.382318,  Elders association,"  1704,",Hearing aids for the elderly
+  CC49286,  Manurewa,  Auckland,-37.028328,174.894636,  Dog feeders!,"  500,",Dog food
+  CC48103,  Glen Eden,  Auckland,-36.912376,174.654167,  Homeless helpers,"  50,", Clothes for the homeless
+  CC48519,  Hamilton Lake,  Hamilton,-37.805384,175.277867,  Penguin assistance,"  250,",Crutches for handicapped penguins
+  CC49017,  Christchurch Central,  Christchurch,-43.530658,172.633547,  Christchurch cyborg initiative,"  750,",Robots for children
+  CC50425,  Mangawhai,  Kaiwaka,-36.170501,174.447334,  Goldfish lovers assocaition,"  300,",Water for goldfish
+  CC48539,  Brooklyn,  Wellington,-41.304594,174.759223,  Music inspiration corporation,"  500,",Musical instruments for the homeless
+  CC48540,   ,  Whakatane,-37.958777,176.978597,  Cat lovers association,"  35,",Cats for the catless
+  CC48800,   ,  Whanganui,failed,failed,  Dog lovers association,"  70,",Dogs for the dogless
+  CC48411,  null,  null,failed,failed,  Caffine anonymous,"  500,",Decaf coffee for caffine addicts anonymous
+  CC48597,  Rongotai,  Wellington,-41.322574,174.804256,  Guinea pig helpers,"  200,",Carrots for the guinea pig adoption center
+  CC48813,   ,  Bulls,-40.177056,175.382318,  Elders association,"  300,",Hearing aids for the elderly

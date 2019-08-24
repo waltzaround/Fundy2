@@ -1,11 +1,17 @@
 <html>
   <head>
+    <link rel="stylesheet" href="assets/css/main.css">
     <title>deck.gl HexagonLayer Example</title>
 
     <script src="https://unpkg.com/deck.gl@^7.0.0/dist.min.js"></script>
     <script src="https://d3js.org/d3.v5.min.js"></script>
 
     <style type="text/css">
+      /* #deckgl-overlay {
+        display: inline-block !important;
+        position: relative !important;
+      } */
+
       body {
         font-family: Helvetica, Arial, sans-serif;
         width: 100vw;
@@ -15,28 +21,50 @@
 
       #control-panel {
         position: absolute;
-        top: 0;
-        left: 0;
+        top: 20px;
+        left: 50%;
+        /* right: 0; */
         margin: 12px;
         padding: 20px;
         font-size: 12px;
         line-height: 1.5;
         z-index: 1;
-        background: #fff;
+        /* left:40%; */
+        /* background: #fff; */
         font-family: Helvetica, Arial, sans-serif;
         box-shadow: 0 0 4px rgba(0, 0, 0, 0.15);
       }
-
+      th {
+        padding-right: 10px;
+        padding-left: 10px;
+        text-align: left;
+      }
+      td {
+        padding-right: 10px;
+        padding-left: 10px;
+      }
       label {
         display: inline-block;
         width: 140px;
+      }
+      .header {
+        position: absolute;
+        top: 20px;
+        left: 40px;
       }
     </style>
   </head>
 
   <body>
-    <div id="control-panel" style="width: 300px; height: 200px; overflow-x: hidden; overflow-y: scroll">
+    <div class="header CardTitle">
+        <h1>Locations of donations</h1>
+    </div>
+    <div id="control-panel" style="overflow-x: hidden; overflow-y: hidden">
       <h1>Past donations</h1>
+      <table id="donation-table">
+        <tr><th>Charity</th><th>Donated</th><th>Expense</th></tr>
+      </table>
+      
     </div>
     <div id="tooltip"></div>
   </body>
@@ -69,8 +97,8 @@
         id: 'heatmap',
         colorRange: COLOR_RANGE,
         data,
-        elevationRange: [0, 10000],
-        elevationScale: 10,
+        // elevationRange: [0, 10000],
+        elevationScale: 200,
         extruded: true,
         getPosition: d => d.pos,
         getElevationWeight: d=> d.size,
@@ -97,14 +125,15 @@
         controller: false,
         width: "50%"
       });
+
     }
 
-    d3.csv('https://raw.githubusercontent.com/waltzaround/Fundy/master/contributions.csv')
+    d3.csv('https://raw.githubusercontent.com/waltzaround/Fundy2/master/contributions.csv')
       .then(response => {
       data = response.map(d => {
-        let expendenture = document.createElement('div');
-        expendenture.innerHTML = d.Name + " : $" + d.TotalExpenditure + " : Dog food"
-        document.getElementById('control-panel').appendChild(expendenture)
+        let expendenture = document.createElement('tr');
+        expendenture.innerHTML = "<td>" + d.Name + "</td><td>$" + d.TotalExpenditure + "</td><td>" + d.Expense + "</td>";
+        document.getElementById('donation-table').appendChild(expendenture)
         return {pos: [Number(d.Long), Number(d.Lat)], size :Number(d.TotalExpenditure.replace(',', ''))}
       });
       renderLayer();
