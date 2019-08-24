@@ -1,0 +1,53 @@
+/* 
+Charity Detail Page
+*/
+
+.mainShape {
+    margin-top: 10rem;
+    position: relative;
+    box-shadow: 6px 0 21px -3px rgba(86,93,111,0.12);
+    border-radius: 16px;
+    background: white;
+    width: 80rem;
+    height: 1200px;
+}
+
+.mask {
+    position: absolute;
+    top:-100px;
+    right: calc(50% - 100px);
+    width:200px;
+    height:200px;
+    border-radius: 50% 50% 0 0;
+    background-color:white;
+    align-content: center;
+    padding:6px;
+}
+
+.charity {
+    text-align: center;
+    margin: 20px;
+}   
+
+.charity-title {
+    padding-top:140px;
+    align-content: center;
+} 
+
+.charity-location {
+    align-content: center;
+} 
+
+.charity-summary {
+    text-align: left;
+    float: left;
+    padding: 20px;
+}
+
+.clearfix:after {
+    content: " "; /* Older browser do not support empty content */
+    visibility: hidden;
+    display: block;
+    height: 0;
+    clear: both;
+ }
