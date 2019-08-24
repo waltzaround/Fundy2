@@ -197,9 +197,6 @@ border: 5px solid transparent;
 
 }
 
-.ProductPriceContainer {
-
-}
 .PriceContainer {
     font-size: 2rem;
     font-weight: bold;
@@ -228,11 +225,25 @@ margin-right: 2rem;
       width: 960px;
       float: left;
       height: 10rem;
-         margin: 1rem 0 0 2rem;
+    margin: 1rem 0 0 2rem;
   }
 
   .PriceContainer {
       float: right;
   }
 
+.corporateHeaderText {
+    position: relative;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
 
+.corporateStatistics {
+    text-align: center;
+}
+
+.corporateJargonText{
+    text-align: center;
+}
