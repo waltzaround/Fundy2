@@ -35,22 +35,8 @@
   </head>
 
   <body>
-    <div id="control-panel">
-      <div>
-        <label>Radius</label>
-        <input id="radius" type="range" min="1000" max="20000" step="1000" value="1000"></input>
-        <span id="radius-value"></span>
-      </div>
-      <div>
-        <label>Coverage</label>
-        <input id="coverage" type="range" min="0" max="1" step="0.1" value="1"></input>
-        <span id="coverage-value"></span>
-      </div>
-      <div>
-        <label>Upper Percentile</label>
-        <input id="upperPercentile" type="range" min="90" max="100" step="1" value="100"></input>
-        <span id="upperPercentile-value"></span>
-      </div>
+    <div id="control-panel" style="width: 300px; height: 200px; overflow-x: hidden; overflow-y: scroll">
+      <h1>Past donations</h1>
     </div>
     <div id="tooltip"></div>
   </body>
@@ -70,8 +56,6 @@
 
     let data = null;
 
-    const OPTIONS = ['radius', 'coverage', 'upperPercentile'];
-
     const COLOR_RANGE = [
       [1, 152, 189],
       [73, 227, 206],
@@ -80,19 +64,7 @@
       [254, 173, 84],
       [209, 55, 78]
     ];
-
-    OPTIONS.forEach(key => {
-      document.getElementById(key).oninput = renderLayer;
-    });
-
     function renderLayer () {
-      const options = {};
-      OPTIONS.forEach(key => {
-        const value = document.getElementById(key).value;
-        document.getElementById(key + '-value').innerHTML = value;
-        options[key] = Number(value);
-      });
-
       const hexagonLayer = new HexagonLayer({
         id: 'heatmap',
         colorRange: COLOR_RANGE,
@@ -104,7 +76,8 @@
         getElevationWeight: d=> d.size,
         elevationAggregation: 'SUM',
         opacity: 1,
-        ...options
+        radius: 12000,
+        coverage: 1
       });
       
       const geoJsonLayer = new GeoJsonLayer({
@@ -121,14 +94,17 @@
 
       deckgl.setProps({
         layers: [hexagonLayer, geoJsonLayer],
-        controller: true,
-        width: "100%"
+        controller: false,
+        width: "50%"
       });
     }
 
-    d3.csv('https://raw.githubusercontent.com/waltzaround/Fundy/master/csv.csv')
+    d3.csv('https://raw.githubusercontent.com/waltzaround/Fundy/master/contributions.csv')
       .then(response => {
-      data = response.filter(d => Number(d.TotalExpenditure.replace(',', '') < 125000)).map(d => {
+      data = response.map(d => {
+        let expendenture = document.createElement('div');
+        expendenture.innerHTML = d.Name + " : $" + d.TotalExpenditure + " : Dog food"
+        document.getElementById('control-panel').appendChild(expendenture)
         return {pos: [Number(d.Long), Number(d.Lat)], size :Number(d.TotalExpenditure.replace(',', ''))}
       });
       renderLayer();
