@@ -27,9 +27,9 @@
 <body>
     <header>
         <img class='Logo' src='assets/img/logo.png'></img>
-        <p class='MenuItem LastItem'>Sponsors</p>
-        <p class='MenuItem'>Charities</p>
-        <p class='MenuItem'>Reports</p>
+        <a href="header.html" class='MenuItem LastItem'>Home</a>
+        <a href="charity-1.html" class='MenuItem'>Charity</a>
+        <a href="template.html" class='MenuItem'>Reports</a>
     </header>
   <div class="Container" >
 <div class="ReportingHeader">Hi Robbie!<br /> Your contributions this month resulted in <br /><strong>31 interventions</strong> in <strong>15 communities!</strong> See more below.
@@ -85,14 +85,20 @@
         title: {
           display: true,
           text: 'Donation break down',
-          fontSize: 30 
+          fontSize: 40 
         },
-        labels: {
-          fontSize: 28,
+        legend: {
+            display: true,
+            labels: {
+                fontSize: 28
+            }
         }
       }
     })
   </script>
-</body>
+  <div class="Container">
+  <iframe class='BIReport' width="1280" height="1000" src="https://app.powerbi.com/view?r=eyJrIjoiNGIyZGEwZjItNjkxNy00MGQ1LTg1ZmYtNzdmZmUzNTU5NDVhIiwidCI6IjUwNzM3MmZjLTNlZDItNGI1ZS1iMjk1LTM2NGM1ZTE5NDYwMiJ9" frameborder="0" allowFullScreen="true"></iframe>
+</div>
+  </body>
 
 </html>
